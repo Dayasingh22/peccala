@@ -205,11 +205,11 @@ const AllUserList = () => {
         action: (
           <div className="table-actions">
             <>
-              <Tooltip title="Delete User">
+              {/* <Tooltip title="Delete User">
                 <Button className="btn-icon" type="danger" shape="circle" onClick={() => wrongLeadStatus(user)}>
                   <FeatherIcon icon="trash" size={16} />
                 </Button>
-              </Tooltip>
+              </Tooltip> */}
               <Tooltip title="Update User">
                 <Button
                   className="btn-icon"

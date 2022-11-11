@@ -12,8 +12,6 @@ const UserTransactionDetails = props => {
     console.log(values);
   };
 
-  console.log('BGgbhn', singleTransaction);
-
   return (
     <>
       <Modal

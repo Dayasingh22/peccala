@@ -8,6 +8,7 @@ const AllUserList = lazy(() => import('../../container/pages/Management/AllUserL
 const EditUser = lazy(() => import('../../container/pages/Management/EditUser'));
 const UserDetails = lazy(() => import('../../container/pages/Management/user/SingleUser'));
 const AccountVerification = lazy(() => import('../../container/pages/Management/AccountVerification'));
+const AllTransactions = lazy(() => import('../../container/pages/Management/AllTransactions'));
 
 const Admin = () => {
   const { path } = useRouteMatch();
@@ -31,6 +32,7 @@ const Admin = () => {
         <Route path={`${path}/edituser/:id`} component={EditUser} />
         <Route path={`${path}/user`} component={UserDetails} />
         <Route path={`${path}/verification`} component={AccountVerification} />
+        <Route path={`${path}/transactions`} component={AllTransactions} />
       </Suspense>
     </Switch>
   );

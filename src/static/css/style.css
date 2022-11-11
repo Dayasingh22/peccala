@@ -8,6 +8,18 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+.non-editable {
+  width: 100%;
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.user-details > div {
+  margin-bottom: 20px;
+}
+
 .button-spinner {
   margin-top: -5px;
   border: 1px solid grey;

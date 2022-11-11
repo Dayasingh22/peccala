@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal, Col, Row, Form } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { Button } from '../../../components/buttons/buttons';
+import { setItem } from '../../../utility/localStorageControl';
 
 const UserDetails = props => {
   const { singleUser } = props;
@@ -17,9 +18,18 @@ const UserDetails = props => {
     console.log(values);
   };
 
-  const userDetails = user => {
+  const userDetails = () => {
+    setItem('currentUser', JSON.stringify(singleUser));
     history.push({
       pathname: '/admin/user/details',
+      state: user,
+    });
+  };
+
+  const userTransactions = () => {
+    setItem('currentUser', JSON.stringify(singleUser));
+    history.push({
+      pathname: '/admin/user/transactions',
       state: user,
     });
   };
@@ -66,12 +76,26 @@ const UserDetails = props => {
               </Col>
               <Col xxl={8} xl={12} lg={12} md={8} xs={24}>
                 <Form.Item name="email" label="Status">
-                  <p>{user['Account verification (KYC)']}</p>
+                  <span
+                    className={`status ${user['Account verification (KYC)'] === 'Unverified' ? 'warning' : 'Success'}`}
+                  >
+                    {user['Account verification (KYC)'] ?? ''}
+                  </span>
                 </Form.Item>
               </Col>
             </Row>
           )}
           <div className="sDash-button-grp">
+            <Button
+              className="btn-signin"
+              type="primary"
+              size="large"
+              onClick={() => {
+                userTransactions();
+              }}
+            >
+              View Transactions History
+            </Button>
             <Button
               className="btn-signin"
               type="warning"

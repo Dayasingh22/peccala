@@ -33,7 +33,7 @@ const Account = () => {
   const fetchUserDataFromBubble = async user_id => {
     const token = process.env.REACT_APP_PECCALA_TOKEN;
     const uid = {
-      uid: '1643631865210x131837923467236220',
+      uid: user_id,
     };
     const headers = {
       headers: {
@@ -41,7 +41,7 @@ const Account = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const result = await axios.post('https://dev.api.peccala.com:8443/api/v1/users/getUserLogs', uid, headers);
+    const result = await axios.post('https://dev-api.peccala.com:8443/api/v1/users/getUserLogs', uid, headers);
     return result.data.data.allLogs;
   };
 
